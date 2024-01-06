@@ -1,6 +1,6 @@
 const db = require("../models");
-const Pessoa = db.pessoas;
-const Profissao = db.profissaos;
+const Pessoa = db.persons;
+const Profissao = db.jobs;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
@@ -91,11 +91,11 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
- const id = req.params.id;
+  const id = req.params.id;
 
- Pessoa.destroy({
-   where: { id: id }
- })
+  Pessoa.destroy({
+   where: { pes_id: id }
+  })
    .then(num => {
      if (num == 1) {
        res.send({
@@ -108,11 +108,12 @@ exports.delete = (req, res) => {
      }
    })
    .catch(err => {
+     console.log(err); // Log the error to see more details
      res.status(500).send({
        message: "Could not delete Pessoa with id=" + id
      });
    });
-};
+ };
 
 exports.findAllProf = (req, res) => {
   Profissao.findAll()

@@ -1,28 +1,25 @@
-html {
-	overflow-y: scroll;
-   }
+body {
+   font-family: Arial, sans-serif;
+  }
 
-   body {
-	padding-top: 50px;
-   }
+  .container {
+   margin: 0 auto;
+   width: 80%;
+   padding: 20px;
+   background-color: #f8f9fa;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
-   #todo-list {
-	margin-bottom: 30px;
-   }
+  .text-center {
+   text-align: center;
+  }
 
-   #todo-form {
-	margin-bottom: 50px;
-   }
+  .text-muted {
+   color: #6c757d;
+  }
 
-   input {
-	border: none;
-   }
-
-   .doneClass {
-	text-decoration: line-through;
-	color: red;
-   }
-
-   .notDoneClass {
-	color: green;
-   }
+  p {
+   font-size: 24px;
+   font-weight: bold;
+  }

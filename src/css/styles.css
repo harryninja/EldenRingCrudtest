@@ -1,38 +1,70 @@
-
-html {
-	overflow-y:scroll;
-}
-
 body {
-	padding-top:50px;
-}
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #f8f9fa;
+ }
 
-label{
-    margin-top: 5px;
-}
+ table {
+	width: 80%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+ }
 
-#todo-list {
-	margin-bottom:30px;
-}
+ table, th, td {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: left;
+ }
 
-#todo-form {
-	margin-bottom:50px;
-}
+ th {
+	background-color: #ddd;
+ }
 
-input {
+ form {
+	width: 80%;
+ }
+
+ input[type="text"], input[type="date"], select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+ }
+
+ button {
+	width: 100%;
+	padding: 10px;
 	border: none;
-}
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+ }
 
+ button:hover {
+	background-color: #45a049;
+ }
 
-.doneClass {
-	text-decoration: line-through;
-	color: red;
-}
+   .container {
+	margin: 0 auto;
+	width: 80%;
+	padding: 20px;
+	background-color: #f8f9fa;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   }
 
-.notDoneClass {
-	color: green;
-}
+   .text-center {
+	text-align: center;
+   }
 
-.wide-input{
-	height: 100%;
-}
+   .text-muted {
+	color: #6c757d;
+   }
+
+   p {
+	font-size: 24px;
+	font-weight: bold;
+   }
