@@ -5,12 +5,19 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
 
- if (!req.body.pes_nome) {
-   res.status(400).send({
-     message: "Nome cannot be empty!"
-   });
-   return;
- }
+  if (!req.body.pes_nome || !req.body.pes_data_nascimento || !req.body.pes_cpf || !req.body.pes_prof_id) {
+    res.status(400).send({
+      message: "Nome, data de nascimento, CPF e profissão não podem estar vazios!"
+    });
+    return;
+  }
+
+  if (req.body.pes_cpf.length !== 11) {
+    res.status(400).send({
+      message: "CPF deve ter 11 dígitos!"
+    });
+    return;
+  }
 
  const pessoa = {
    pes_nome: req.body.pes_nome,

@@ -21,7 +21,9 @@ INSERT INTO profissao (prof_id, prof_nome)
 VALUES
 (1, 'Professor'),
 (2, 'Desenvolvedor'),
-(3, 'Tech Lead')
+(3, 'Tech Lead'),
+(4, 'Product Manager'),
+(5, 'Aluno')
 
 INSERT INTO pessoa (pes_id, pes_nome, pes_data_nascimento, pes_cpf, pes_telefone, pes_observacoes, pes_prof_id)
 VALUES

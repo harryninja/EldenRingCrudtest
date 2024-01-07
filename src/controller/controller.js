@@ -11,7 +11,8 @@ app.controller('postgreDbAppController', ['$scope', 'postgreDbAppService', funct
     $scope.loadPerson = function(id) {
         postgreDbAppService.findOne(id).then(function(response) {
             const personData = response.data;
-            $scope.person = {...personData, id: personData.pes_id};
+            $scope.person = { ...personData, id: personData.pes_id };
+            $scope.person.profissao = $scope.profs.find(prof => prof.prof_id === personData.pes_prof_id);
         });
      };
 
@@ -34,12 +35,12 @@ app.controller('postgreDbAppController', ['$scope', 'postgreDbAppService', funct
 
     $scope.openModal = function(id) {
         $scope.loadPerson(id);
-        var modal = document.getElementById("myModal");
+        const modal = document.getElementById("myModal");
         modal.style.display = "block";
      };
 
      $scope.closeModal = function() {
-        var modal = document.getElementById("myModal");
+        const modal = document.getElementById("myModal");
         modal.style.display = "none";
     };
 
