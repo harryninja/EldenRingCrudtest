@@ -10,17 +10,38 @@ app.controller('postgreDbAppController', ['$scope', 'postgreDbAppService', funct
 
     $scope.loadPerson = function(id) {
         postgreDbAppService.findOne(id).then(function(response) {
-          const personData = response.data;
-          const dateParts = personData.pes_data_nascimento.split('-');
-          const year = dateParts[0];
-          let month = dateParts[1];
-          let day = dateParts[2];
-          month = ('0' + month).slice(-2);
-          day = ('0' + day).slice(-2);
-          personData.pes_data_nascimento = `${year}-${month}-${day}`;
-          $scope.person = personData;
+            const personData = response.data;
+            $scope.person = {...personData, id: personData.pes_id};
         });
-       };
+     };
+
+    $scope.formatDate = function (dateString) {
+        const date = new Date(dateString);
+        const day = ("0" + date.getDate()).slice(-2);
+        const month = ("0" + (date.getMonth() + 1)).slice(-2);
+        const year = date.getFullYear();
+
+        return day + "/" + month + "/" + year;
+    };
+
+    $scope.formatDateForInput = function (dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = ("0" + (date.getMonth() + 1)).slice(-2);
+        const day = ("0" + date.getDate()).slice(-2);
+        return year + "-" + month + "-" + day;
+    };
+
+    $scope.openModal = function(id) {
+        $scope.loadPerson(id);
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+     };
+
+     $scope.closeModal = function() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    };
 
     $scope.savePerson = function() {
         if ($scope.person.id) {

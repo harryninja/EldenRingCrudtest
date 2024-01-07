@@ -14,20 +14,27 @@ bash npm install
 4. Inicie o servidor
 bash node server.js
 
+## Compilando SASS
+
+Para compilar os arquivos SASS, você precisará ter o Node Sass instalado globalmente em seu sistema. Se ainda não estiver instalado, você pode fazer isso executando o seguinte comando:
+
+bash npm install -g node-sass
+
+Depois de instalar o Node Sass, você pode compilar seus arquivos SASS usando o seguinte comando:
+
+bash node-sass src/css/styles.scss src/css/styles.css
+
 
 ## Rotas
 
-- GET `api/tutorials` : Obter todos os Tutoriais
-- GET `api/tutorials/:id` : Obter Tutorial por id
-- POST `api/tutorials` : Adicionar novo Tutorial
-- PUT `api/tutorials/:id` : Atualizar Tutorial por id
-- DELETE `api/tutorials/:id` : Remover Tutorial por id
-- DELETE `api/tutorials` : Remover todos os Tutoriais
-- GET `api/tutorials/published` : Encontrar todos os Tutoriais publicados
-- GET `api/tutorials?title=[kw]` : Encontrar todos os Tutoriais cujo título contém 'kw'
-- GET `api/profissaos` : Obter todas as Profissões
+- GET `api/persons` : Obter todas as Pessoas
+- GET `api/persons/:id` : Obter Pessoa por id
+- POST `api/persons` : Adicionar nova Pessoa
+- PUT `api/persons/:id` : Atualizar Pessoa por id
+- DELETE `api/persons/:id` : Remover Pessoa por id
+- DELETE `api/persons` : Remover todas as Pessoas
+- GET `api/persons/allProf` : Encontrar todas as Pessoas com profissão
 
 ## Controladores
 
-- `tutorial.controller.js` : Lida com todas as solicitações relacionadas ao tutorial
-- `profissao.controller.js` : Lida com todas as solicitações relacionadas à profissão
+- `person.controller.js` : Lida com todas as solicitações relacionadas à pessoa

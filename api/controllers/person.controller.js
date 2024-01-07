@@ -67,28 +67,22 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
- const id = req.params.id;
+  const id = req.params.id;
 
- Pessoa.update(req.body, {
-   where: { id: id }
- })
-   .then(num => {
-     if (num == 1) {
-       res.send({
-         message: "Pessoa was updated successfully."
-       });
-     } else {
-       res.send({
-         message: `Cannot update Pessoa with id=${id}. Maybe Pessoa was not found or req.body is empty!`
-       });
-     }
-   })
-   .catch(err => {
-     res.status(500).send({
-       message: "Error updating Pessoa with id=" + id
+  Pessoa.update(req.body, {
+    where: { pes_id: id },
+    returning: true
+  })
+    .then(([rowsUpdate, [updatedPerson]]) => {
+      res.send(updatedPerson);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send({
+        message: "Error updating Pessoa with id=" + id
+      });
      });
-   });
-};
+ };
 
 exports.delete = (req, res) => {
   const id = req.params.id;

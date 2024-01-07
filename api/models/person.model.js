@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     },
     pes_cpf: {
-      type: DataTypes.STRING(14)
+      type: DataTypes.STRING(14),
+      unique: true
     },
     pes_telefone: {
       type: DataTypes.STRING(14),
